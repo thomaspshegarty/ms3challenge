@@ -21,7 +21,6 @@ public class CSVHandler {
 	private int good = 0;
 	private int bad = 0;
 	private int total = 0;
-	private String filename = "";
 	private File f;
 	private List<List<String>> csv_contents;
 	private List<List<String>> bad_contents;
@@ -36,7 +35,6 @@ public class CSVHandler {
 	 */
 	
 	private void open() {
-		f = new File(filename);
 		csv_contents = new ArrayList<List<String>>();
 		bad_contents = new ArrayList<List<String>>();
 	}	
@@ -46,6 +44,7 @@ public class CSVHandler {
 			s = new BufferedReader(new FileReader(f));
 		
 			String str;
+			s.readLine();
 			while((str = s.readLine()) != null) {
 				csv_contents.add(csv_split(str));
 				total = total+1;
@@ -57,14 +56,7 @@ public class CSVHandler {
 	private List<String> csv_split(String test) {
 		return Arrays.asList(test.split(",(?=([^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)"));
 	}	
-	/*private void print_csvarr(List<String> entry) {
-		
-		for(String str: entry) {
-			System.out.println(str);
-		}
-		
-	}*/
-	
+
 	/*
 	 * Public functions
 	 * - add_todb puts checks validity of entry and submits it to the dbhandler
@@ -94,18 +86,12 @@ public class CSVHandler {
 			}
 		}
 		
-		db.selectAll();
-	}
-	
-	public void process() {
+	}	
+	public void process(File file_passed) {
+		f = file_passed;
 		open();
 		read_tolist();
-	}
-	
-	public void set_filename(String fn) {
-		filename = fn;
-	}
-	
+	}	
 	public void create_badcsv() {
 		Date date = new Date();
 		long time = date.getTime();
@@ -128,14 +114,11 @@ public class CSVHandler {
 		}
 		
 	}
-	
+		
 	/*
 	 * Getter functions
 	 */
 	
-	public String get_filename() {
-		return filename;
-	}	
 	public int get_good() {
 		return good;
 	}

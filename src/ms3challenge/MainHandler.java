@@ -14,7 +14,7 @@ public class MainHandler {
 	private CSVHandler c_handler;
 	private DBHandler d_handler;
 	
-	public void run() {
+	public void run(File f) {
 		
 		/*
 		 * CSV Handling portion
@@ -24,8 +24,7 @@ public class MainHandler {
 		c_handler = new CSVHandler();
 		d_handler  = new DBHandler();
 		
-		c_handler.set_filename("C:\\Users\\Rocinante\\Desktop\\ms3interview.csv");
-		c_handler.process();
+		c_handler.process(f);
 		
 		/*
 		 * DB Handling portion
@@ -38,6 +37,7 @@ public class MainHandler {
 		d_handler.construct_db();
 		c_handler.add_todb(d_handler);
 		c_handler.create_badcsv();
+		d_handler.select_all();
 		
 		try {
 			write_log();
@@ -57,7 +57,12 @@ public class MainHandler {
 	}
 	
 	public static void main(String args[]) {
-		MainHandler mh = new MainHandler();
-		mh.run();
+		InterfaceHandler int_h = new InterfaceHandler();
+		try {
+			int_h.set_gui("CSV Parser -- Select a CSV File");
+		} catch (IOException e) {
+			System.out.println("Failed to create interface.");
+			e.printStackTrace();
+		}
 	}
 }

@@ -2,7 +2,6 @@ package ms3challenge;
 
 import java.sql.*;
 import java.util.List;
-import java.util.ArrayList;
 
 public class DBHandler {
 
@@ -34,10 +33,8 @@ public class DBHandler {
 			System.out.println("Could not create in-memory DB.");
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 	public void add_values(List<String> entry) {
-		//System.out.println(entry.size());
 		try{
 			String insert = "INSERT INTO csv VALUES(?,?,?,?,?,?,?,?,?,?);";
 			PreparedStatement s = conn.prepareStatement(insert);
@@ -54,11 +51,15 @@ public class DBHandler {
 		}
 	}
 	
-    public void selectAll(){
+	/*
+	 * Just a testing method for examining the results of the full db update
+	 */
+	
+    public void select_all(){
         String sql = "SELECT * FROM csv";
         
-        try (Statement stmt  = conn.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
+        try (Statement s  = conn.createStatement();
+             ResultSet rs    = s.executeQuery(sql)){
         	
             // loop through the result set
             while (rs.next()) {
