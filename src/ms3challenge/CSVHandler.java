@@ -2,10 +2,8 @@ package ms3challenge;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.Timestamp;
@@ -78,7 +76,7 @@ public class CSVHandler {
 	public void add_todb(DBHandler db) {
 		
 		for(List<String> cont: csv_contents) {
-			if(cont.contains("")) {
+			if(cont.contains("") || cont.size() != 10) {
 				/*
 				 * Because there is a blank space as a value, this entry is incomplete,
 				 * therefore it should be written to the bad-data-<timestamp>.csv
@@ -91,10 +89,12 @@ public class CSVHandler {
 				 * This is a good entry. Should be added to the db and good count should
 				 * be incremented 1.
 				 */
+				db.add_values(cont);
 				good++;
 			}
 		}
 		
+		db.selectAll();
 	}
 	
 	public void process() {

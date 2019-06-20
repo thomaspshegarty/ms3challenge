@@ -35,7 +35,7 @@ public class MainHandler {
 		 * - db handler adds each entry to db
 		 */
 		
-		//d_handler.construct_db();
+		d_handler.construct_db();
 		c_handler.add_todb(d_handler);
 		c_handler.create_badcsv();
 		
