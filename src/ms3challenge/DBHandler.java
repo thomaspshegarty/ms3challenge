@@ -9,7 +9,6 @@ public class DBHandler {
 	private Connection conn;
 	
 	public void construct_db() {
-		
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection(conn_url);
@@ -78,6 +77,15 @@ public class DBHandler {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+    
+    public void close_connection() {
+    	try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 	
 }

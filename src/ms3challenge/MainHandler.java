@@ -38,6 +38,7 @@ public class MainHandler {
 		c_handler.add_todb(d_handler);
 		c_handler.create_badcsv();
 		//d_handler.select_all();
+		d_handler.close_connection();
 		
 		try {
 			write_log();
