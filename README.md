@@ -5,7 +5,7 @@
 ### Running the program
 
 To run the program, execute the command:  
-'java -cp csv_handler.jar ms3challenge.MainHandler'  
+`java -cp csv_handler.jar ms3challenge.MainHandler`  
 in the directory that csv_handler.jar is stored.
 
 ### Approaching the Solution
