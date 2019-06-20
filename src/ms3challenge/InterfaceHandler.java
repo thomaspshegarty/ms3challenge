@@ -48,7 +48,12 @@ public class InterfaceHandler {
 			File file_pass = jfc.getSelectedFile();
 			frame.dispose();
 			
-			if(file_pass == null || !check_suffix(file_pass)) {
+			if(file_pass == null ) {
+				return;
+			}
+			else if(!check_suffix(file_pass))
+			{
+			
 				InterfaceHandler ih = new InterfaceHandler();
 				try {
 					ih.set_gui("Please select the correct filetype.");
