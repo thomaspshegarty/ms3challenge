@@ -6,7 +6,7 @@ Coded by Tommy Hegarty
 
 To run the program, execute the command:  
 `java -cp csv_handler.jar ms3challenge.MainHandler`  
-in the directory that csv_handler.jar is stored.
+in the directory that csv_handler.jar is stored. This will open a file directory, through which you navigate the csv file you want parsed. Select the csv file and open it, and the program will automatically parse the information and load it into an in memory database. The program will terminate, so there is no remaining information for the good entries that were loaded into the database. However, to check the failed entries, there will be a bad-data-<timestamp> csv file within the working directory to examine each failed entry and a csvreader.log that holds statistics about how many successfully and unsuccessful entries were parsed in that run-through.
 
 ### Approaching the Solution
 
