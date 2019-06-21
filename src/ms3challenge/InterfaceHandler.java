@@ -16,6 +16,10 @@ public class InterfaceHandler {
 	private JPanel panel;
 	private JFileChooser jfc;
 	
+	/*
+	 * Starts the GUI for file selection
+	 */
+	
 	public void set_gui(String intro) throws IOException{
 		jfc = new JFileChooser();
 		jfc.addActionListener(new FileListen());
@@ -34,6 +38,11 @@ public class InterfaceHandler {
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
+	
+	/*
+	 * Select the file from the JFC, reject it if it's not a csv
+	 * otherwise run the program
+	 */
 	
 	private class FileListen implements ActionListener{
 		

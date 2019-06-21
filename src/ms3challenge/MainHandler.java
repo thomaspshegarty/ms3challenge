@@ -47,6 +47,11 @@ public class MainHandler {
 		}
 	}
 	
+	
+	/*
+	 * Writes the log file at the end of the run.
+	 */
+	
 	public void write_log() throws IOException {
 		PrintWriter wr = new PrintWriter(new FileWriter("csvreader.log"));
 		wr.printf("Correctly processed entries: %d", c_handler.get_good());
@@ -56,6 +61,10 @@ public class MainHandler {
 		wr.printf("Total received: %d", c_handler.get_total());
 		wr.close();
 	}
+	
+	/*
+	 * Opens the interface and lets it select the file.
+	 */
 	
 	public static void main(String args[]) {
 		InterfaceHandler int_h = new InterfaceHandler();

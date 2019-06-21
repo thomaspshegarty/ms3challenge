@@ -61,7 +61,6 @@ public class CSVHandler {
 	 * Public functions
 	 * - add_todb puts checks validity of entry and submits it to the dbhandler
 	 * - process is the public facing method to open and then read csv
-	 * - set_filename gives the csv location 
 	 * - create_badcsv makes the csv of failed entries
 	 */
 	

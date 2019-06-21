@@ -8,6 +8,14 @@ public class DBHandler {
 	private String conn_url = "jdbc:sqlite::memory:";
 	private Connection conn;
 	
+	/*
+	 * Public methods
+	 * - construct_db instantiates the DB with the 10 correct column names
+	 * - add_values takes a List<String> representing a single csv
+	 *   entry and adds all values to the prepared statement that updates 
+	 *   the db
+	 */
+	
 	public void construct_db() {
 		try {
 			Class.forName("org.sqlite.JDBC");
